@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 29, 2012 12:49:48 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.siak.data.Kartukeluargadetail" table="kartukeluargadetail" catalog="kependudukan">
+        <id name="kartuKeluargaDetailId" type="java.lang.Integer">
+            <column name="KartuKeluargaDetailID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="kartukeluarga" class="org.siak.data.Kartukeluarga" fetch="select">
+            <column name="NoKK" length="16" />
+        </many-to-one>
+        <many-to-one name="pekerjaan" class="org.siak.data.Pekerjaan" fetch="select">
+            <column name="PekerjaanID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="agama" class="org.siak.data.Agama" fetch="select">
+            <column name="AgamaID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="hubungandetailByStatusKawin" class="org.siak.data.Hubungandetail" fetch="select">
+            <column name="StatusKawin" not-null="true" />
+        </many-to-one>
+        <many-to-one name="hubungandetailByStatusHubungan" class="org.siak.data.Hubungandetail" fetch="select">
+            <column name="StatusHubungan" not-null="true" />
+        </many-to-one>
+        <many-to-one name="pendidikan" class="org.siak.data.Pendidikan" fetch="select">
+            <column name="PendidikanID" not-null="true" />
+        </many-to-one>
+        <property name="niks" type="string">
+            <column name="NIKS" length="16" not-null="true" />
+        </property>
+        <property name="jenisKelamin" type="string">
+            <column name="JenisKelamin" length="10" not-null="true" />
+        </property>
+        <property name="tanggalLahir" type="timestamp">
+            <column name="TanggalLahir" length="19" not-null="true" />
+        </property>
+        <property name="tempatLahir" type="string">
+            <column name="TempatLahir" length="45" not-null="true" />
+        </property>
+        <property name="nikayah" type="string">
+            <column name="NIKAyah" length="16" not-null="true" />
+        </property>
+        <property name="nikibu" type="string">
+            <column name="NIKIbu" length="16" not-null="true" />
+        </property>
+        <property name="namaAyah" type="string">
+            <column name="NamaAyah" length="50" />
+        </property>
+        <property name="namaIbu" type="string">
+            <column name="NamaIbu" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,126 @@
+@CHARSET "ISO-8859-1";
+
+.title{
+	margin:20px 40px;
+	font-size:18pt;
+	font-weight: bold;
+}
+
+.main{
+	width:100%;
+	height:100%;
+	background:url("../Images/bg.jpg");
+}
+
+.biodata{
+	background:url("../Images/Biodata.png");	
+}
+
+.document{
+	background:url("../Images/Document.png");
+}
+
+.civil{
+	background:url("../Images/Civil.png");
+}
+
+.pokok{
+	background:url("../Images/Pokok.png");
+}
+
+.permohonan{
+	background:url("../Images/Report.png");
+}
+
+.cetak{
+	background:url("../Images/Cetak.png");
+}
+
+.myuser{
+	background:url("../Images/User.png");
+}
+
+.shutdown{
+	background:url("../Images/Shutdown.gif");
+}
+
+.add{
+	background:url("../Images/Add.png");
+}
+
+.edit{
+	background:url("../Images/Edit.png");
+}
+
+.delete{
+	background:url("../Images/Delete.png");	
+}
+
+.detail{
+	background:url("../Images/Detail.png");
+}
+
+.setting{
+	background:url("../Images/Setting.png");
+}
+
+.wizard{
+	background:url("../Images/Portal.png");
+}
+
+.log{
+	background:url("../Images/Log.png");
+}
+
+.detaildk{
+	background:url("../Images/DetailDokumen.png");
+}
+
+.cetakdk{
+	background:url("../Images/Print.png");
+}
+
+.tabeldk{
+	background:url("../Images/Table.png");
+}
+
+.x-tree-lines .user-group{
+	background:url("../Images/User.gif");
+}
+
+.x-tree-lines .computer{
+	background:url("../Images/Computer-icon.png");
+}
+
+.x-tree-lines .relation{
+	background:url("../Images/Relation.png");
+}
+
+.x-tree-lines .salatiga{
+	background:url("../Images/Salatiga.png") no-repeat;
+}
+
+.x-tree-lines .kecamatan{
+	background:url("../Images/Kecamatan.png") no-repeat;
+}
+
+.kelurahan{
+	background:url("../Images/Kelurahan.png") no-repeat;
+}
+
+.start{
+	background-image: linear-gradient(bottom, #4478C7 37%, #6699D6 69%, #467BCC 6%);
+	background-image: -o-linear-gradient(bottom, #4478C7 37%, #6699D6 69%, #467BCC 6%);
+	background-image: -moz-linear-gradient(bottom, #4478C7 37%, #6699D6 69%, #467BCC 6%);
+	background-image: -webkit-linear-gradient(bottom, #4478C7 37%, #6699D6 69%, #467BCC 6%);
+	background-image: -ms-linear-gradient(bottom, #4478C7 37%, #6699D6 69%, #467BCC 6%);
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.37, #4478C7),
+		color-stop(0.69, #6699D6),
+		color-stop(0.06, #467BCC)
+	);
+	border-radius : 5px;
+}

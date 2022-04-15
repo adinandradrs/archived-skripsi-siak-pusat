@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 28, 2012 10:43:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.siak.data.Pengguna" table="pengguna" catalog="kependudukan">
+        <id name="username" type="string">
+            <column name="Username" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="sandi" type="string">
+            <column name="Sandi" length="45" not-null="true" />
+        </property>
+        <property name="waktuLogin" type="timestamp">
+            <column name="WaktuLogin" length="19" not-null="true" />
+        </property>
+        <property name="iplogin" type="string">
+            <column name="IPLogin" length="45" not-null="true" />
+        </property>
+        <property name="nama" type="string">
+            <column name="Nama" length="45" not-null="true" />
+        </property>
+        <property name="aktif" type="int">
+            <column name="Aktif" not-null="true" />
+        </property>
+        <set name="gruppenggunas" inverse="true">
+            <key>
+                <column name="Username" length="45" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Gruppengguna" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 31, 2012 6:51:27 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.siak.data.Aktakematian" table="aktakematian" catalog="kependudukan">
+        <id name="noAktaKematian" type="string">
+            <column name="NoAktaKematian" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="kartukeluarga" class="org.siak.data.Kartukeluarga" fetch="select">
+            <column name="NoKK" length="16" not-null="true" />
+        </many-to-one>
+        <many-to-one name="permohonan" class="org.siak.data.Permohonan" fetch="select">
+            <column name="PermohonanID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="biodata" class="org.siak.data.Biodata" fetch="select">
+            <column name="NIK" length="16" not-null="true" />
+        </many-to-one>
+        <property name="tanggalMeninggal" type="timestamp">
+            <column name="TanggalMeninggal" length="19" not-null="true" />
+        </property>
+        <property name="tempatMeninggal" type="string">
+            <column name="TempatMeninggal" length="45" not-null="true" />
+        </property>
+        <property name="keterangan" type="string">
+            <column name="Keterangan" length="45" not-null="true" />
+        </property>
+        <property name="nikayah" type="string">
+            <column name="NIKAyah" length="16" not-null="true" />
+        </property>
+        <property name="nikibu" type="string">
+            <column name="NIKIbu" length="16" not-null="true" />
+        </property>
+        <property name="jenisBuat" type="int">
+            <column name="JenisBuat" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

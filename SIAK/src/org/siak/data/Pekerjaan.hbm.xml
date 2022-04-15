@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 28, 2012 10:43:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.siak.data.Pekerjaan" table="pekerjaan" catalog="kependudukan">
+        <id name="pekerjaanId" type="java.lang.Integer">
+            <column name="PekerjaanID" />
+            <generator class="identity" />
+        </id>
+        <property name="nama" type="string">
+            <column name="Nama" length="45" not-null="true" />
+        </property>
+        <set name="biodatas" inverse="true">
+            <key>
+                <column name="PekerjaanID" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Biodata" />
+        </set>
+        <set name="kartukeluargadetails" inverse="true">
+            <key>
+                <column name="PekerjaanID" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Kartukeluargadetail" />
+        </set>
+    </class>
+</hibernate-mapping>

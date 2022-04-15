@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 28, 2012 10:43:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.siak.data.Permohonandetail" table="permohonandetail" catalog="kependudukan">
+        <id name="permohonanDetailId" type="java.lang.Integer">
+            <column name="PermohonanDetailID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="permohonan" class="org.siak.data.Permohonan" fetch="select">
+            <column name="PermohonanID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="biodata" class="org.siak.data.Biodata" fetch="select">
+            <column name="NIK" length="16" not-null="true" />
+        </many-to-one>
+        <property name="tanggalPengajuan" type="timestamp">
+            <column name="TanggalPengajuan" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

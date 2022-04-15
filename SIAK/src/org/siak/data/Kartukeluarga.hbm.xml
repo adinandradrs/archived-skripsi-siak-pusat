@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 29, 2012 12:49:48 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.siak.data.Kartukeluarga" table="kartukeluarga" catalog="kependudukan">
+        <id name="noKk" type="string">
+            <column name="NoKK" length="16" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="permohonan" class="org.siak.data.Permohonan" fetch="select">
+            <column name="PermohonanID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="biodata" class="org.siak.data.Biodata" fetch="select">
+            <column name="NIK" length="16" not-null="true" />
+        </many-to-one>
+        <property name="jenisBuat" type="int">
+            <column name="JenisBuat" not-null="true" />
+        </property>
+        <property name="tanggalBuat" type="timestamp">
+            <column name="TanggalBuat" length="19" not-null="true" />
+        </property>
+        <set name="kartukeluargadetails" inverse="true">
+            <key>
+                <column name="NoKK" length="16" />
+            </key>
+            <one-to-many class="org.siak.data.Kartukeluargadetail" />
+        </set>
+        <set name="aktakematians" inverse="true">
+            <key>
+                <column name="NoKK" length="16" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Aktakematian" />
+        </set>
+    </class>
+</hibernate-mapping>

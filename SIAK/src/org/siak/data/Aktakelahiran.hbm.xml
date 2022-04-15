@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 28, 2012 10:43:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.siak.data.Aktakelahiran" table="aktakelahiran" catalog="kependudukan">
+        <id name="noAktaKelahiran" type="string">
+            <column name="NoAktaKelahiran" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="biodataByNikibu" class="org.siak.data.Biodata" fetch="select">
+            <column name="NIKIbu" length="16" />
+        </many-to-one>
+        <many-to-one name="biodataByNikayah" class="org.siak.data.Biodata" fetch="select">
+            <column name="NIKAyah" length="16" />
+        </many-to-one>
+        <many-to-one name="permohonan" class="org.siak.data.Permohonan" fetch="select">
+            <column name="PermohonanID" not-null="true" />
+        </many-to-one>
+        <property name="nama" type="string">
+            <column name="Nama" length="45" not-null="true" />
+        </property>
+        <property name="tanggalLahir" type="timestamp">
+            <column name="TanggalLahir" length="19" not-null="true" />
+        </property>
+        <property name="tempatLahir" type="string">
+            <column name="TempatLahir" length="45" not-null="true" />
+        </property>
+        <property name="jenisKelamin" type="string">
+            <column name="JenisKelamin" length="10" not-null="true" />
+        </property>
+        <property name="tanggalBuat" type="timestamp">
+            <column name="TanggalBuat" length="19" not-null="true" />
+        </property>
+        <property name="noKk" type="string">
+            <column name="NoKK" length="16" />
+        </property>
+        <property name="jenisKelahiran" type="string">
+            <column name="JenisKelahiran" length="20" not-null="true" />
+        </property>
+        <property name="bantuanKelahiran" type="string">
+            <column name="BantuanKelahiran" length="20" not-null="true" />
+        </property>
+        <property name="jenisBuat" type="int">
+            <column name="JenisBuat" not-null="true" />
+        </property>
+        <set name="biodatas" inverse="true">
+            <key>
+                <column name="NoAktaKelahiran" length="20" />
+            </key>
+            <one-to-many class="org.siak.data.Biodata" />
+        </set>
+    </class>
+</hibernate-mapping>

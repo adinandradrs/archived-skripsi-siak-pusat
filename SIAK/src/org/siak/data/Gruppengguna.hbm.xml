@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 28, 2012 10:43:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.siak.data.Gruppengguna" table="gruppengguna" catalog="kependudukan">
+        <composite-id name="id" class="org.siak.data.GruppenggunaId">
+            <key-property name="grupPenggunaId" type="int">
+                <column name="GrupPenggunaID" />
+            </key-property>
+            <key-property name="username" type="string">
+                <column name="Username" length="45" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="grup" class="org.siak.data.Grup" fetch="select">
+            <column name="GrupID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="pengguna" class="org.siak.data.Pengguna" update="false" insert="false" fetch="select">
+            <column name="Username" length="45" not-null="true" />
+        </many-to-one>
+        <property name="kecamatanId" type="java.lang.Integer">
+            <column name="KecamatanID" />
+        </property>
+        <property name="kelurahanId" type="java.lang.Integer">
+            <column name="KelurahanID" />
+        </property>
+    </class>
+</hibernate-mapping>

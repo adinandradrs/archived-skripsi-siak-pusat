@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/kependudukan</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">admin</property>
+    <mapping resource="org/siak/data/Agama.hbm.xml"/>
+    <mapping resource="org/siak/data/Aktanikahdetail.hbm.xml"/>
+    <mapping resource="org/siak/data/Kecamatan.hbm.xml"/>
+    <mapping resource="org/siak/data/Aktakelahiran.hbm.xml"/>
+    <mapping resource="org/siak/data/Permohonandetail.hbm.xml"/>
+    <mapping resource="org/siak/data/Pengguna.hbm.xml"/>
+    <mapping resource="org/siak/data/Pendidikan.hbm.xml"/>
+    <mapping resource="org/siak/data/Permohonan.hbm.xml"/>
+    <mapping resource="org/siak/data/Hubungandetail.hbm.xml"/>
+    <mapping resource="org/siak/data/Pekerjaan.hbm.xml"/>
+    <mapping resource="org/siak/data/Kartukeluarga.hbm.xml"/>
+    <mapping resource="org/siak/data/Biodatacacat.hbm.xml"/>
+    <mapping resource="org/siak/data/Grup.hbm.xml"/>
+    <mapping resource="org/siak/data/Hubungan.hbm.xml"/>
+    <mapping resource="org/siak/data/Aktanikah.hbm.xml"/>
+    <mapping resource="org/siak/data/Kelurahan.hbm.xml"/>
+    <mapping resource="org/siak/data/Biodatapindah.hbm.xml"/>
+    <mapping resource="org/siak/data/Biodata.hbm.xml"/>
+    <mapping resource="org/siak/data/Aktakematian.hbm.xml"/>
+    <mapping resource="org/siak/data/Cacat.hbm.xml"/>
+    <mapping resource="org/siak/data/Kartukeluargadetail.hbm.xml"/>
+    <mapping resource="org/siak/data/Kota.hbm.xml"/>
+    <mapping resource="org/siak/data/Gruppengguna.hbm.xml"/>
+    <mapping resource="org/siak/data/Ktp.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

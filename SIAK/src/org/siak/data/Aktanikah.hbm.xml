@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 28, 2012 10:43:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.siak.data.Aktanikah" table="aktanikah" catalog="kependudukan">
+        <id name="noAktaNikah" type="string">
+            <column name="NoAktaNikah" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="permohonan" class="org.siak.data.Permohonan" fetch="select">
+            <column name="PermohonanID" not-null="true" />
+        </many-to-one>
+        <property name="tanggalBuat" type="timestamp">
+            <column name="TanggalBuat" length="19" not-null="true" />
+        </property>
+        <property name="jenisBuat" type="int">
+            <column name="JenisBuat" not-null="true" />
+        </property>
+        <set name="aktanikahdetails" inverse="true">
+            <key>
+                <column name="NoAktaNikah" length="20" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Aktanikahdetail" />
+        </set>
+    </class>
+</hibernate-mapping>

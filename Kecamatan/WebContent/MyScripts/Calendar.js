@@ -1,0 +1,30 @@
+function getCurrentTime(){
+    var currentTime = new Date();
+    var date = currentTime.getDate();
+    var monthList = new Array(12);
+    monthList[0] = "Januari";
+    monthList[1] = "Februari";
+    monthList[2] = "Maret";
+    monthList[3] = "April";
+    monthList[4] = "Mei";
+    monthList[5] = "Juni";
+    monthList[6] = "Juli";
+    monthList[7] = "Agustus";
+    monthList[8] = "September";
+    monthList[9] = "Oktober";
+    monthList[11] = "November";
+    monthList[12] = "Desember";
+    var month = monthList[currentTime.getMonth()];
+    var dayList = new Array(7);
+    dayList[0]="Minggu";
+    dayList[1]="Senin";
+    dayList[2]="Selasa";
+    dayList[3]="Rabu";
+    dayList[4]="Kamis";
+    dayList[5]="Jumat";
+    dayList[6]="Sabtu";
+    var day = dayList[currentTime.getDay()];
+    var year = currentTime.getFullYear();
+    var now = day + " , " + date + " " + month + " " + year;
+    return now;
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 28, 2012 10:43:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.siak.data.Permohonan" table="permohonan" catalog="kependudukan">
+        <id name="permohonanId" type="java.lang.Integer">
+            <column name="PermohonanID" />
+            <generator class="identity" />
+        </id>
+        <property name="jenisPermohonan" type="string">
+            <column name="JenisPermohonan" length="45" not-null="true" />
+        </property>
+        <set name="kartukeluargas" inverse="true">
+            <key>
+                <column name="PermohonanID" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Kartukeluarga" />
+        </set>
+        <set name="aktakematians" inverse="true">
+            <key>
+                <column name="PermohonanID" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Aktakematian" />
+        </set>
+        <set name="permohonandetails" inverse="true">
+            <key>
+                <column name="PermohonanID" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Permohonandetail" />
+        </set>
+        <set name="aktakelahirans" inverse="true">
+            <key>
+                <column name="PermohonanID" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Aktakelahiran" />
+        </set>
+        <set name="ktps" inverse="true">
+            <key>
+                <column name="PermohonanID" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Ktp" />
+        </set>
+        <set name="aktanikahs" inverse="true">
+            <key>
+                <column name="PermohonanID" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Aktanikah" />
+        </set>
+    </class>
+</hibernate-mapping>

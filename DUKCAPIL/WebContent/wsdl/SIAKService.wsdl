@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.siak.org" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.siak.org" xmlns:intf="http://service.siak.org" xmlns:tns1="http://dummy.siak.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.siak.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://dummy.siak.org"/>
+   <element name="authKota">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+      <element name="sandi" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="authKotaResponse">
+    <complexType>
+     <sequence>
+      <element name="authKotaReturn" type="tns1:KotaDummy"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="infoKota">
+    <complexType>
+     <sequence>
+      <element name="kotaID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="infoKotaResponse">
+    <complexType>
+     <sequence>
+      <element name="infoKotaReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="authKelurahan">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+      <element name="sandi" type="xsd:string"/>
+      <element name="waktuString" type="xsd:string"/>
+      <element name="ipAddress" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="authKelurahanResponse">
+    <complexType>
+     <sequence>
+      <element name="authKelurahanReturn" type="tns1:KelurahanDummy"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="infoKTPKelurahan">
+    <complexType>
+     <sequence>
+      <element name="kelurahanID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="infoKTPKelurahanResponse">
+    <complexType>
+     <sequence>
+      <element name="infoKTPKelurahanReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="infoBiodataKelurahan">
+    <complexType>
+     <sequence>
+      <element name="kelurahanID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="infoBiodataKelurahanResponse">
+    <complexType>
+     <sequence>
+      <element name="infoBiodataKelurahanReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://dummy.siak.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://service.siak.org"/>
+   <complexType name="KotaDummy">
+    <sequence>
+     <element name="kotaID" type="xsd:int"/>
+     <element name="namaKota" nillable="true" type="xsd:string"/>
+     <element name="username" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="KelurahanDummy">
+    <sequence>
+     <element name="kelurahanID" type="xsd:int"/>
+     <element name="sandi" nillable="true" type="xsd:string"/>
+     <element name="username" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="infoBiodataKelurahanResponse">
+
+      <wsdl:part element="impl:infoBiodataKelurahanResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="infoBiodataKelurahanRequest">
+
+      <wsdl:part element="impl:infoBiodataKelurahan" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="infoKotaResponse">
+
+      <wsdl:part element="impl:infoKotaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="infoKotaRequest">
+
+      <wsdl:part element="impl:infoKota" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="infoKTPKelurahanRequest">
+
+      <wsdl:part element="impl:infoKTPKelurahan" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="authKelurahanRequest">
+
+      <wsdl:part element="impl:authKelurahan" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="authKotaRequest">
+
+      <wsdl:part element="impl:authKota" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="infoKTPKelurahanResponse">
+
+      <wsdl:part element="impl:infoKTPKelurahanResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="authKotaResponse">
+
+      <wsdl:part element="impl:authKotaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="authKelurahanResponse">
+
+      <wsdl:part element="impl:authKelurahanResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SIAKService">
+
+      <wsdl:operation name="authKota">
+
+         <wsdl:input message="impl:authKotaRequest" name="authKotaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:authKotaResponse" name="authKotaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="infoKota">
+
+         <wsdl:input message="impl:infoKotaRequest" name="infoKotaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:infoKotaResponse" name="infoKotaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="authKelurahan">
+
+         <wsdl:input message="impl:authKelurahanRequest" name="authKelurahanRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:authKelurahanResponse" name="authKelurahanResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="infoKTPKelurahan">
+
+         <wsdl:input message="impl:infoKTPKelurahanRequest" name="infoKTPKelurahanRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:infoKTPKelurahanResponse" name="infoKTPKelurahanResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="infoBiodataKelurahan">
+
+         <wsdl:input message="impl:infoBiodataKelurahanRequest" name="infoBiodataKelurahanRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:infoBiodataKelurahanResponse" name="infoBiodataKelurahanResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SIAKServiceSoapBinding" type="impl:SIAKService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="authKota">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="authKotaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="authKotaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="infoKota">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="infoKotaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="infoKotaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="authKelurahan">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="authKelurahanRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="authKelurahanResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="infoKTPKelurahan">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="infoKTPKelurahanRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="infoKTPKelurahanResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="infoBiodataKelurahan">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="infoBiodataKelurahanRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="infoBiodataKelurahanResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SIAKServiceService">
+
+      <wsdl:port binding="impl:SIAKServiceSoapBinding" name="SIAKService">
+
+         <wsdlsoap:address location="http://localhost:8080/DUKCAPIL/services/SIAKService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2012 3:18:03 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.siak.data.Biodata" table="biodata" catalog="kependudukan">
+        <id name="nik" type="string">
+            <column name="NIK" length="16" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="pekerjaan" class="org.siak.data.Pekerjaan" fetch="select">
+            <column name="PekerjaanID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="agama" class="org.siak.data.Agama" fetch="select">
+            <column name="AgamaID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="hubungandetail" class="org.siak.data.Hubungandetail" fetch="select">
+            <column name="StatusNikah" not-null="true" />
+        </many-to-one>
+        <many-to-one name="kelurahan" class="org.siak.data.Kelurahan" fetch="select">
+            <column name="KelurahanID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="pendidikan" class="org.siak.data.Pendidikan" fetch="select">
+            <column name="PendidikanID" not-null="true" />
+        </many-to-one>
+        <property name="nama" type="string">
+            <column name="Nama" length="45" not-null="true" />
+        </property>
+        <property name="tanggalLahir" type="timestamp">
+            <column name="TanggalLahir" length="19" not-null="true" />
+        </property>
+        <property name="tempatLahir" type="string">
+            <column name="TempatLahir" length="45" not-null="true" />
+        </property>
+        <property name="golonganDarah" type="string">
+            <column name="GolonganDarah" length="10" not-null="true" />
+        </property>
+        <property name="noAktaKelahiran" type="string">
+            <column name="NoAktaKelahiran" length="20" />
+        </property>
+        <property name="noKk" type="string">
+            <column name="NoKK" length="16" />
+        </property>
+        <property name="telepon" type="string">
+            <column name="Telepon" length="12" not-null="true" />
+        </property>
+        <property name="alamat" type="string">
+            <column name="Alamat" length="65535" not-null="true" />
+        </property>
+        <property name="foto" type="binary">
+            <column name="Foto" not-null="true" />
+        </property>
+        <property name="aktif" type="int">
+            <column name="Aktif" not-null="true" />
+        </property>
+        <property name="jenisKelamin" type="string">
+            <column name="JenisKelamin" length="10" not-null="true" />
+        </property>
+        <property name="rt" type="java.lang.Integer">
+            <column name="RT" />
+        </property>
+        <property name="rw" type="java.lang.Integer">
+            <column name="RW" />
+        </property>
+        <set name="ktps" inverse="true">
+            <key>
+                <column name="NIK" length="16" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="org.siak.data.Ktp" />
+        </set>
+        <set name="aktakelahiransForNikayah" inverse="true">
+            <key>
+                <column name="NIKAyah" length="16" />
+            </key>
+            <one-to-many class="org.siak.data.Aktakelahiran" />
+        </set>
+        <set name="biodatapindahs" inverse="true">
+            <key>
+                <column name="NIK" length="16" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="org.siak.data.Biodatapindah" />
+        </set>
+        <set name="aktanikahdetailsForNiksuami" inverse="true">
+            <key>
+                <column name="NIKSuami" length="16" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Aktanikahdetail" />
+        </set>
+        <set name="permohonandetails" inverse="true">
+            <key>
+                <column name="NIK" length="45" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Permohonandetail" />
+        </set>
+        <set name="biodatacacats" inverse="true">
+            <key>
+                <column name="NIK" length="16" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Biodatacacat" />
+        </set>
+        <set name="kartukeluargas" inverse="true">
+            <key>
+                <column name="NIK" length="16" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Kartukeluarga" />
+        </set>
+        <set name="aktakematians" inverse="true">
+            <key>
+                <column name="NIK" length="16" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Aktakematian" />
+        </set>
+        <set name="aktanikahdetailsForNikistri" inverse="true">
+            <key>
+                <column name="NIKIstri" length="16" not-null="true" />
+            </key>
+            <one-to-many class="org.siak.data.Aktanikahdetail" />
+        </set>
+        <set name="aktakelahiransForNikibu" inverse="true">
+            <key>
+                <column name="NIKIbu" length="16" />
+            </key>
+            <one-to-many class="org.siak.data.Aktakelahiran" />
+        </set>
+    </class>
+</hibernate-mapping>

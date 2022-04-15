@@ -1,0 +1,148 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from SIAKServiceService WSDL service -->
+
+  <service name="SIAKService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.siak.org"/>
+      <parameter name="wsdlServiceElement" value="SIAKServiceService"/>
+      <parameter name="schemaQualified" value="http://service.siak.org,http://dummy.siak.org"/>
+      <parameter name="wsdlServicePort" value="SIAKService"/>
+      <parameter name="className" value="org.siak.service.SIAKServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="SIAKService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="authKota" qname="operNS:authKota" xmlns:operNS="http://service.siak.org" returnQName="retNS:authKotaReturn" xmlns:retNS="http://service.siak.org" returnType="rtns:KotaDummy" xmlns:rtns="http://dummy.siak.org" soapAction="" >
+        <parameter qname="pns:username" xmlns:pns="http://service.siak.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:sandi" xmlns:pns="http://service.siak.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="infoKota" qname="operNS:infoKota" xmlns:operNS="http://service.siak.org" returnQName="retNS:infoKotaReturn" xmlns:retNS="http://service.siak.org" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://service.siak.org" returnItemQName="tns:item" xmlns:tns="http://service.siak.org" soapAction="" >
+        <parameter qname="pns:kotaID" xmlns:pns="http://service.siak.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="authKelurahan" qname="operNS:authKelurahan" xmlns:operNS="http://service.siak.org" returnQName="retNS:authKelurahanReturn" xmlns:retNS="http://service.siak.org" returnType="rtns:KelurahanDummy" xmlns:rtns="http://dummy.siak.org" soapAction="" >
+        <parameter qname="pns:username" xmlns:pns="http://service.siak.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:sandi" xmlns:pns="http://service.siak.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:waktuString" xmlns:pns="http://service.siak.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ipAddress" xmlns:pns="http://service.siak.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="infoKTPKelurahan" qname="operNS:infoKTPKelurahan" xmlns:operNS="http://service.siak.org" returnQName="retNS:infoKTPKelurahanReturn" xmlns:retNS="http://service.siak.org" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://service.siak.org" returnItemQName="tns:item" xmlns:tns="http://service.siak.org" soapAction="" >
+        <parameter qname="pns:kelurahanID" xmlns:pns="http://service.siak.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="infoBiodataKelurahan" qname="operNS:infoBiodataKelurahan" xmlns:operNS="http://service.siak.org" returnQName="retNS:infoBiodataKelurahanReturn" xmlns:retNS="http://service.siak.org" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://service.siak.org" returnItemQName="tns:item" xmlns:tns="http://service.siak.org" soapAction="" >
+        <parameter qname="pns:kelurahanID" xmlns:pns="http://service.siak.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="authKota infoKTPKelurahan authKelurahan infoBiodataKelurahan infoKota"/>
+
+      <arrayMapping
+        xmlns:ns="http://service.siak.org"
+        qname="ns:ArrayOf_xsd_anyType"
+        type="java:java.lang.Object[]"
+        innerType="cmp-ns:anyType" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://service.siak.org"
+        qname="ns:>infoKTPKelurahanResponse"
+        type="java:org.siak.service.InfoKTPKelurahanResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://service.siak.org"
+        qname="ns:>infoKTPKelurahan"
+        type="java:org.siak.service.InfoKTPKelurahan"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://dummy.siak.org"
+        qname="ns:KelurahanDummy"
+        type="java:org.siak.dummy.KelurahanDummy"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://service.siak.org"
+        qname="ns:>authKota"
+        type="java:org.siak.service.AuthKota"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://service.siak.org"
+        qname="ns:>authKotaResponse"
+        type="java:org.siak.service.AuthKotaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://dummy.siak.org"
+        qname="ns:KotaDummy"
+        type="java:org.siak.dummy.KotaDummy"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://service.siak.org"
+        qname="ns:>infoBiodataKelurahan"
+        type="java:org.siak.service.InfoBiodataKelurahan"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://service.siak.org"
+        qname="ns:>infoKota"
+        type="java:org.siak.service.InfoKota"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://service.siak.org"
+        qname="ns:>authKelurahan"
+        type="java:org.siak.service.AuthKelurahan"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://service.siak.org"
+        qname="ns:>infoBiodataKelurahanResponse"
+        type="java:org.siak.service.InfoBiodataKelurahanResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://service.siak.org"
+        qname="ns:>infoKotaResponse"
+        type="java:org.siak.service.InfoKotaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://service.siak.org"
+        qname="ns:>authKelurahanResponse"
+        type="java:org.siak.service.AuthKelurahanResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

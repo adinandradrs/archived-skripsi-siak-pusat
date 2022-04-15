@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="kependudukan"/>
+  <table-filter match-name="grup"/>
+  <table-filter match-name="aktakelahiran"/>
+  <table-filter match-name="hubungandetail"/>
+  <table-filter match-name="kota"/>
+  <table-filter match-name="pendidikan"/>
+  <table-filter match-name="biodatacacat"/>
+  <table-filter match-name="cacat"/>
+  <table-filter match-name="hubungan"/>
+  <table-filter match-name="kartukeluargadetail"/>
+  <table-filter match-name="permohonandetail"/>
+  <table-filter match-name="ktp"/>
+  <table-filter match-name="gruppengguna"/>
+  <table-filter match-name="kecamatan"/>
+  <table-filter match-name="aktanikah"/>
+  <table-filter match-name="kelurahan"/>
+  <table-filter match-name="pengguna"/>
+  <table-filter match-name="biodata"/>
+  <table-filter match-name="biodatapindah"/>
+  <table-filter match-name="agama"/>
+  <table-filter match-name="pekerjaan"/>
+  <table-filter match-name="kartukeluarga"/>
+  <table-filter match-name="aktakematian"/>
+  <table-filter match-name="aktanikahdetail"/>
+  <table-filter match-name="permohonan"/>
+</hibernate-reverse-engineering>

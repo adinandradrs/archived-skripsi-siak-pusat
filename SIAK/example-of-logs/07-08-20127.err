@@ -1,0 +1,5 @@
+00:04:18.223 | java.rmi.server.ExportException: Port already in use: 51090; nested exception is: 
+	java.net.BindException: Address already in use: JVM_Bind | Starting service is failed
+01:31:21.593 | java.rmi.server.ExportException: Port already in use: 51090; nested exception is: 
+	java.net.BindException: Address already in use: JVM_Bind | Starting service is failed
+03:28:17.987 | org.hibernate.exception.ConstraintViolationException: Could not execute JDBC batch update | Hapus Biodata : 3373330207850001
